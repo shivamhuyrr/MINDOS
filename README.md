@@ -16,16 +16,7 @@
 - **📊 Mood Tracking** — Log moods with emoji scale, visualize trends
 - **🌙 Premium Dark UI** — Glassmorphic design with smooth animations
 
-## 🏗️ Architecture
 
-```
-User → [Voice/Text] → FastAPI Backend
-                          ├── Whisper (STT)
-                          ├── Emotion Detector
-                          ├── Crisis Detector
-                          ├── Pinecone Memory (RAG)
-                          ├── GPT-4o (LLM)
-                          └── ElevenLabs (TTS) → Audio Response
 ```
 
 ## 🚀 Quick Start
@@ -66,26 +57,7 @@ npm run dev
 
 Open **http://localhost:3000** in your browser.
 
-### 3. API Keys Required
 
-| Service | Purpose | Get Key |
-|---------|---------|---------|
-| **OpenAI** | GPT-4o, Whisper STT, Embeddings | [platform.openai.com](https://platform.openai.com) |
-| **ElevenLabs** *(optional)* | Text-to-Speech voice | [elevenlabs.io](https://elevenlabs.io) |
-| **Pinecone** *(optional)* | Vector memory DB | [pinecone.io](https://pinecone.io) |
-
-> 💡 The app works without optional keys — ElevenLabs falls back to text-only, Pinecone falls back to in-memory storage.
-
-## 📡 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/health` | Service health check |
-| `POST` | `/api/chat` | Send text message |
-| `POST` | `/api/mood` | Log mood entry |
-| `GET` | `/api/mood/{user_id}` | Get mood history |
-| `GET` | `/api/mood/{user_id}/summary` | AI mood summary |
-| `WS` | `/ws/voice/{user_id}` | Real-time voice chat |
 
 ## 🛡️ Safety & Privacy
 
@@ -95,26 +67,7 @@ Open **http://localhost:3000** in your browser.
 - **Encryption**: All communication over HTTPS/WSS
 - **Disclaimer**: Clearly labeled as a wellness tool, not a therapist replacement
 
-## 📁 Project Structure
 
-```
-MINDOS/
-├── backend/
-│   ├── app/
-│   │   ├── main.py              # FastAPI entry point
-│   │   ├── config.py            # Settings
-│   │   ├── models/              # Database & schemas
-│   │   ├── services/            # STT, LLM, TTS, Memory, Emotion, Crisis
-│   │   ├── routers/             # API endpoints
-│   │   └── prompts/             # System prompts
-│   └── requirements.txt
-├── frontend/
-│   └── src/app/
-│       ├── page.tsx             # Main page
-│       ├── globals.css          # Design system
-│       └── components/          # React components
-└── README.md
-```
 
 ## ⚠️ Disclaimer
 
